@@ -23,8 +23,8 @@ class App extends React.Component {
     const data = {
       count: 2,
       results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+        { name: 'fake thing 1', url: 'https://fakethings.com/1' },
+        { name: 'fake thing 2', url: 'https://fakethings.com/2' },
       ],
     };
     this.setState({ data, requestParams });
