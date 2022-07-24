@@ -18,13 +18,16 @@ const Form = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>URL: </span>
+          <span data-testid='get-span'>URL: </span>
           <input
             name='url'
+            data-testid='url-input'
             type='text'
             onChange={(e) => setUrl(e.target.value)}
           />
-          <button type='submit'>GO!</button>
+          <button type='submit' data-testid='submit-button'>
+            GO!
+          </button>
         </label>
         <label className='methods'>
           <span
@@ -51,10 +54,6 @@ const Form = (props) => {
             onClick={() => setMethod('DELETE')}>
             DELETE
           </span>
-          {/* <span id='get'>GET</span>
-          <span id='post'>POST</span>
-          <span id='put'>PUT</span>
-          <span id='delete'>DELETE</span> */}
         </label>
       </form>
     </>
