@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import axios from 'axios';
 import './app.scss';
 
 import Header from './components/header';
@@ -12,17 +13,21 @@ const App = () => {
   const [requestParams, setRequestParams] = useState({});
 
   const callApi = (requestParams) => {
-    // mock output
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'https://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'https://fakethings.com/2' },
-      ],
-    };
-    setData(data);
     setRequestParams(requestParams);
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      if (requestParams.url) {
+        const response = await axios({
+          method: requestParams.method,
+          url: requestParams.url,
+        });
+        setData(response.data);
+      }
+    };
+    getData();
+  }, [requestParams]);
 
   return (
     <>
@@ -30,7 +35,7 @@ const App = () => {
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
       <Form handleApiCall={callApi} />
-      <Results data={data} />
+      {data ? <Results data={data} /> : null}
       <Footer />
     </>
   );
