@@ -5,13 +5,15 @@ $radius: 40%;
 form {
   display: inline-block;
   margin-left: auto;
-  margin-top: auto;
   margin-right: auto;
-  width: 200px;
+  // margin-top: auto;
+  width: 260px;
 
   label {
     display: flex;
     margin: 1rem 0;
+    // margin-left: auto;
+    // margin-right: auto;
     color: #e76f51;
 
     &.methods {
