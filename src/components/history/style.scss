@@ -1,0 +1,21 @@
+#history {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1vw;
+  color: #e9c46a;
+
+  h2 {
+    text-align: center;
+  }
+
+  button {
+    margin-bottom: 0.25vw;
+    background-color: #264653;
+    color: #e76f51;
+    border-radius: 15px;
+    &:hover,
+    &.active {
+      background: #e9c46a;
+    }
+  }
+}
